@@ -46,7 +46,7 @@ bash install_librerias.sh
 
 Sigue las instrucciones en pantalla para completar la instalación de colorama.
 
-####Requisitos
+Requisitos
 Python 3.x
 Biblioteca colorama
 
