@@ -1,53 +1,95 @@
 # Generador y Hasheador de Contraseñas
 
-Este proyecto contiene scripts en Python para generar contraseñas aleatorias y para hashear contraseñas almacenadas en un archivo.
+Este proyecto consta de dos scripts en Python:
+
+1. **Generador de Contraseñas Aleatorias:** Genera contraseñas aleatorias basadas en las opciones especificadas por el usuario.
+2. **Hasheador de Contraseñas:** Lee contraseñas desde un archivo, las hashea utilizando SHA-256 y guarda los resultados en un archivo de salida.
+
+## Requisitos
+
+- Python 3.x
+- [Colorama](https://pypi.org/project/colorama/) (para el generador de contraseñas, para la gestión de colores en la terminal)
+
+## Instalación
+
+1. **Clona o descarga el repositorio:**
+
+    ```bash
+    git clone https://github.com/CodingJAndres/generate.git
+    ```
+
+2. **Navega al directorio del proyecto:**
+
+    ```bash
+    cd password
+    ```
+
+3. **Instala las dependencias necesarias:**
+
+    ```bash
+    pip install colorama
+    ```
 
 ## Scripts
 
-### 1. generate_password.py
+### Generador de Contraseñas Aleatorias
 
-Este script genera contraseñas aleatorias según las preferencias del usuario y las muestra por pantalla. También permite guardar las contraseñas en un archivo.
+Este script genera contraseñas aleatorias según los parámetros especificados por el usuario y ofrece la opción de guardarlas en un archivo.
 
 #### Uso
 
-1. Clona o descarga este repositorio en tu máquina local.
-2. Abre una terminal y navega al directorio donde se encuentra el script `generate_password.py`.
-3. Ejecuta el script con Python:
+1. **Ejecuta el script:**
 
-   ```bash
-   python generate_password.py
-Sigue las instrucciones en pantalla para especificar el número de contraseñas a generar, longitud, y qué tipos de caracteres incluir.
+    ```bash
+    python generate_password.py
+    ```
 
-Opcionalmente, puedes guardar las contraseñas generadas en un archivo.
+2. **Introduce los parámetros solicitados:**
+    - Número de contraseñas a generar.
+    - Longitud de cada contraseña.
+    - Opciones para incluir letras mayúsculas, minúsculas, dígitos y caracteres especiales.
 
-2.hash_passwords.py
-Este script toma un archivo de contraseñas en texto plano y genera hashes SHA-256 para cada contraseña. Los hashes junto con las contraseñas originales se guardan en un archivo de salida.
+3. **Decide si deseas guardar las contraseñas en un archivo y proporciona el nombre del archivo si es necesario.**
 
-Uso
-Asegúrate de tener un archivo de contraseñas en texto plano preparado.
+#### Descripción de Opciones
 
-Abre una terminal y navega al directorio donde se encuentra el script hash_passwords.py.
+- **Número de contraseñas a generar:** Define cuántas contraseñas quieres crear.
+- **Longitud de la contraseña:** Especifica la longitud de cada contraseña generada.
+- **Incluir letras mayúsculas/minúsculas:** Elige si deseas incluir letras mayúsculas o minúsculas en las contraseñas.
+- **Incluir dígitos y caracteres especiales:** Decide si deseas que las contraseñas incluyan dígitos y/o caracteres especiales.
 
-Ejecuta el script con Python:
-python hash_passwords.py
+#### Manejo de Errores
 
-Introduce la ruta del archivo de contraseñas cuando se te solicite.
+- **ValueError:** Se muestra si ninguna opción de caracteres está habilitada.
+- **KeyboardInterrupt:** El script maneja la interrupción del teclado (Ctrl+C) para cerrar el programa de manera segura.
 
-Las contraseñas hasheadas se guardarán en el archivo contraseñas_hashed.txt en el mismo directorio.
+### Hasheador de Contraseñas
 
-3. install_librerias.sh
-Este script de shell simplifica la instalación de las dependencias necesarias para ejecutar generate_password.py, específicamente la biblioteca colorama.
+Este script lee contraseñas desde un archivo, las hashea utilizando SHA-256 y guarda los resultados en un archivo de salida.
 
-Uso
-Abre una terminal y navega al directorio donde se encuentra el script install_librerias.sh.
+#### Uso
 
-Ejecuta el script:
-bash install_librerias.sh
+1. **Ejecuta el script:**
 
-Sigue las instrucciones en pantalla para completar la instalación de colorama.
+    ```bash
+    python hash_passwords.py
+    ```
 
-Requisitos
-Python 3.x
-Biblioteca colorama
+2. **Introduce la ruta del archivo de contraseñas cuando se te solicite.** El archivo de salida será `contraseñas_hashed.txt`.
 
+#### Descripción de Opciones
 
+- **Archivo de contraseñas:** Archivo de entrada que contiene contraseñas en texto plano, una por línea.
+- **Archivo de salida:** Archivo que contendrá cada contraseña en texto plano seguida de su hash SHA-256.
+
+#### Manejo de Errores
+
+- **FileNotFoundError:** Se muestra si el archivo de contraseñas no se encuentra en la ruta especificada.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
+
+---
+
+Utiliza estos scripts para generar y hashear contraseñas de manera segura y eficiente.
